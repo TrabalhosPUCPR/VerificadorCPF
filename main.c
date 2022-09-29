@@ -3,7 +3,7 @@
 int somaCpf(const char cpf[11], int fator_inicial);
 
 int main() {
-    char cpf[11] = "01214508995";
+    char cpf[11] = "12345678903";
     char ultimos_digitos[2];
     int somacpf = somaCpf(cpf, 10);
     if (somacpf % 11 > 1){
@@ -18,18 +18,17 @@ int main() {
         ultimos_digitos[1] = '0';
     }
     if(cpf[9] == ultimos_digitos[0] && cpf[10] == ultimos_digitos[1]){
-        printf("O CPF informado é valido!\n");
+        printf("O CPF informado e valido!\n");
     }else{
-        printf("O CPF informado é invalido!\n");
+        printf("O CPF informado e invalido!\n");
     }
     return 0;
 }
 
 int somaCpf(const char c[11], int fator_inicial) {
     int soma = 0;
-    for(int i = 0, fator; i < fator_inicial - 1; i++){
-        fator = fator_inicial - i;
-        soma = (fator * ((int)c[i] - 48)) + soma;
+    for(int i = 0; i < fator_inicial - 1; i++){
+        soma = ((fator_inicial - i) * ((int)c[i] - 48)) + soma;
     }
     return soma;
 }
